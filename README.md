@@ -11,7 +11,7 @@
 
 ## Introduction
 
-This project is a backend application built with Laravel, utilizing Breeze for authentication and Blade for templating. It provides a platform for users to create and manage shortened URLs, complete with user registration, authentication, and a url overview dashboard. It also includes a API token generator for utilising CRUD operations of the provided API.
+This project is a backend application built with [Laravel](https://laravel.com/docs/11.x/releases), utilizing [Breeze](https://laravel.com/docs/11.x/starter-kits) for authentication and [Blade](https://laravel.com/docs/11.x/blade) for templating. It provides a platform for users to create and manage shortened URLs, complete with user registration, authentication, and a URL overview dashboard. It also includes a API token generator for utilising CRUD operations of the provided API.
 
 ## Features
 
@@ -24,7 +24,7 @@ This project is a backend application built with Laravel, utilizing Breeze for a
 ## Requirements
 - Composer installed
 - NPM installed
-- PHP8.2 installed
+- PHP 8.2 installed
 - Node 18 installed
 
 ## Installation
@@ -137,7 +137,7 @@ To generate an API token, navigate to the API token generation page after loggin
 }
 ```
 
-### Update an existing url
+### Update an existing URL
 
 **Endpoint:** `PUT /api/urls/{id}`
 
