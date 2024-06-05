@@ -71,7 +71,7 @@ This project is a backend application built with [Laravel](https://laravel.com/d
 
 ## API Endpoints
 
-The application provides a set of API endpoints for managing URLs. These endpoints are secured with Sanctum for authentication. An API token is required for accessing these endpoints, which can be generated through a separate page in the project.
+The application provides a set of API endpoints for managing URLs. These endpoints are secured with [Sanctum](https://laravel.com/docs/11.x/sanctum) for authentication. An API token is required for accessing these endpoints, which can be generated through a separate page in the project.
 
 ### Generate API Token
 
