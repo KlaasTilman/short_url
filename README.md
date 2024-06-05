@@ -1,66 +1,169 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Short Url Project
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+## Table of Contents
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Introduction
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This project is a backend application built with Laravel, utilizing Breeze for authentication and Blade for templating. It provides a platform for users to create and manage shortened URLs, complete with user registration, authentication, and a url overview dashboard. It also includes a API token generator for utilising CRUD operations of the provided API.
 
-## Learning Laravel
+## Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. **User Registration and Login**: Users can register and log in.
+2. **URL Dashboard**: Users can view all their shortened URLs.
+3. **URL Manipulation Features**: Users can create, edit, and delete shortened URLs.
+4. **Redirection Functionality**: The application allows redirection from the shortened URL to the target URL.
+5. **API Functionality**: CRUD operations for URLs via an API endpoint.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/KlaasTilman/short_url.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd short_url
+    ```
+3. Install the dependencies:
+    ```bash
+    composer install
+    npm install
+    ```
+4. Copy the `.env.example` file to `.env`:
+    ```bash
+    cp .env.example .env
+    ```
+5. Generate the application key:
+    ```bash
+    php artisan key:generate
+    ```
+6. Run the database migrations:
+    ```bash
+    php artisan migrate
+    ```
+7. Serve the application:
+    ```bash
+    php artisan serve
+    ```
 
-## Laravel Sponsors
+## Usage
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. Register a new user or log in with existing credentials.
+<img src="images/login.JPG" alt="Login" width="50%">
+2. Access the URL management dashboard to view, create, edit, and delete shortened URLs.
+<img src="images/dashboard.JPG" alt="dashboard" width="80%">
+<img src="images/edit.JPG" alt="edit" width="65%">
+3. Use the provided shortened URLs for redirection.
 
-### Premium Partners
+## API Endpoints
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+The application provides a set of API endpoints for managing URLs. These endpoints are secured with Sanctum for authentication. An API token is required for accessing these endpoints, which can be generated through a separate page in the project.
 
-## Contributing
+### Generate API Token
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+To generate an API token, navigate to the API token generation page after logging into the application. Use this token in your requests to access the protected endpoints.
 
-## Code of Conduct
+<img src="images/token.JPG" alt="token" width="65%">
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Get All URLs
 
-## Security Vulnerabilities
+**Endpoint:** `GET /api/urls`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**Description:** Retrieve all shortened URLs for the authenticated user.
 
-## License
+**Response:**
+```json
+{
+  "urls": [
+    {
+      "id": 1,
+      "name": "Example URL",
+      "og_url": "https://example.com",
+      "short_url": "abcde",
+      "user_id": 1,
+      "created_at": "2024-06-05T12:34:56.000000Z",
+      "updated_at": "2024-06-05T12:34:56.000000Z"
+    }
+    // more URLs
+  ]
+}
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Create a new URL
+
+**Endpoint:** `POST /api/urls`
+
+**Description:** Create a new shortened URL.
+
+**Request parameters:**
+- `name` (string, required): A descriptive name for the URL.
+- `og_url` (string, required): The original URL to be shortened.
+
+**Request example:**
+```json
+{
+    "name": "Reddit",
+    "og_url": "https://www.reddit.com/"
+}
+```
+
+**Response:**
+```json
+{
+  "message": "URL created successfully",
+  "url": {
+    "id": 2,
+    "name": "Reddit",
+    "og_url": "https://www.reddit.com/",
+    "short_url": "fghij",
+    "user_id": 1,
+    "created_at": "2024-06-05T12:34:56.000000Z",
+    "updated_at": "2024-06-05T12:34:56.000000Z"
+  }
+}
+```
+
+### Update an existing url
+
+**Endpoint:** `PUT /api/urls/{id}`
+
+**Description:** Update an existing shortened URL.
+
+**Request parameters:**
+- `name` (string, required): A descriptive name for the URL.
+- `og_url` (string, required): The original URL to be shortened.
+
+**Request example:**
+```json
+{
+    "name": "Reddit Part Two",
+    "og_url": "https://www.reddit.com/"
+}
+```
+
+**Response:**
+```json
+{
+  "message": "URL updated successfully"
+}
+```
+
+### Delete a URL
+
+**Endpoint:** `DELETE /api/urls/{id}`
+
+**Description:** Delete an existing shortened URL.
+
+**Response:**
+```json
+{
+  "message": "URL deleted successfully"
+}
+```
