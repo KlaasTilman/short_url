@@ -7,7 +7,7 @@
             {{ __('Urls Overview') }}
         </h2>
     </x-slot>
-    <div class="max-w-3xl mx-auto p-4 sm:p-6 lg:p-8">
+    <div class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
         <form method="POST" action="{{ route('urls.store') }}" class="space-y-4">
             @csrf
             <div>

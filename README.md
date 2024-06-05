@@ -21,6 +21,12 @@ This project is a backend application built with Laravel, utilizing Breeze for a
 4. **Redirection Functionality**: The application allows redirection from the shortened URL to the target URL.
 5. **API Functionality**: CRUD operations for URLs via an API endpoint.
 
+## Requirements
+- Composer installed
+- NPM installed
+- PHP8.2 installed
+- Node 18 installed
+
 ## Installation
 
 1. Clone the repository:
@@ -35,6 +41,7 @@ This project is a backend application built with Laravel, utilizing Breeze for a
     ```bash
     composer install
     npm install
+    npm run build
     ```
 4. Copy the `.env.example` file to `.env`:
     ```bash
