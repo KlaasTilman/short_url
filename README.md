@@ -65,8 +65,6 @@ This project is a backend application built with [Laravel](https://laravel.com/d
 1. Register a new user or log in with existing credentials.
 <img src="images/login.JPG" alt="Login" width="50%">
 2. Access the URL management dashboard to view, create, edit, and delete shortened URLs.
-<img src="images/dashboard.JPG" alt="dashboard" width="80%">
-<img src="images/edit.JPG" alt="edit" width="65%">
 3. Use the provided shortened URLs for redirection.
 
 ## API Endpoints
